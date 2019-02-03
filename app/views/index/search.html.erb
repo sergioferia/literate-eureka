@@ -8,7 +8,7 @@
       </div>  
     </div>  
   <% end %>
-	
+<% if @user %>
 Events byuser: <%= @user.login %> (<%= @user.id %>)
  <%= image_tag @user.avatar_url, class: "img-fluid" %>
   <hr>
@@ -20,4 +20,6 @@ Events byuser: <%= @user.login %> (<%= @user.id %>)
   Repo:<%= @event.repo %> -
   Date:<%= @event.created_at %> 
   <hr>
+<% end %>
+
 <% end %>

@@ -4,10 +4,10 @@ class IndexController < ApplicationController
   end
     
   def search
-    @uname = params.fetch(:uname, nil)
-    @uname = @uname.match(/(\w+)/)[1]
+    @uname = params.fetch(:uname, "")
+    @uname = @uname[/(\w+)/].to_s
    
-    if (! @uname.nil?)
+    if ( @uname.length > 0)
       @events = Github::Event.search(@uname)
       @user = Github::User.find(@uname)
     end
