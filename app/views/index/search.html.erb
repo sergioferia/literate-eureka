@@ -9,7 +9,7 @@
     </div>  
   <% end %>
 <% if @user %>
-Events byuser: <%= @user.login %> (<%= @user.id %>)
+<p>Events by user: <span><%= @user.login %></span> (<%= @user.id %>)</p>
  <%= image_tag @user.avatar_url, class: "img-fluid" %>
   <hr>
  

@@ -5,5 +5,10 @@ class IndexControllerTest < ActionDispatch::IntegrationTest
     get index_index_url
     assert_response :success
   end
+  
+  test "should get search page" do
+    get search_page_url
+    assert_response :success
+  end
 
 end
