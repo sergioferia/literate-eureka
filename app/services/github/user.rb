@@ -5,7 +5,7 @@ module Github
                   :created_at,
                   :updated_at,
                   :id
-    MAX_LIMIT = 12
+    
     CACHE_DEFAULTS = { expires_in: 7.days, force: false }
 
     def self.find(id)

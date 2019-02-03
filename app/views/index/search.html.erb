@@ -9,3 +9,15 @@
     </div>  
   <% end %>
 	
+Events byuser: <%= @user.login %> (<%= @user.id %>)
+ <%= image_tag @user.avatar_url, class: "img-fluid" %>
+  <hr>
+ 
+<% for @event in @events %>
+  Actor: <%= @event.actor.login %> -
+  ID:<%= @event.id %> -
+  Type:<%= @event.type %> -
+  Repo:<%= @event.repo %> -
+  Date:<%= @event.created_at %> 
+  <hr>
+<% end %>

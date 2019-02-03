@@ -1,6 +1,15 @@
 class IndexController < ApplicationController
   def index
-    #display rando user
-    @user = Github::User.find("sergioferia")
+  
+  end
+    
+  def search
+    @uname = params.fetch(:uname, nil)
+    @uname = @uname.match(/(\w+)/)[1]
+   
+    if (! @uname.nil?)
+      @events = Github::Event.search(@uname)
+      @user = Github::User.find(@uname)
+    end
   end
 end
