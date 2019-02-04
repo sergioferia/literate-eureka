@@ -1,25 +1,39 @@
-
-  <%= form_tag(search_page_path, :method => "get",   
-      class: 'navbar-form navbar-left') do %>  
-    <div class="input-group">  
-      <%= search_field_tag :uname, params[:uname], placeholder: "username", class: "form-control",required: true %>  
-      <div class="input-group-btn">  
-        <%= button_tag "submit", :class => 'btn btn-info glyphicon glyphicon-search',:name => nil%>  
-      </div>  
-    </div>  
-  <% end %>
+<div class="container sticky-top">
+	<nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+  <a class="navbar-brand">Literate Eureka</a> 
+  
+ <%= form_tag(search_page_path, :method => "get",   
+     class: 'form-inline') do %>  
+   <div class="input-group">  
+     <%= search_field_tag :uname, params[:uname], placeholder: "username", class: "form-control mr-sm-2",required: true %>  
+     <div class="input-group-btn">  
+       <%= button_tag "submit", :class => 'btn btn-outline-success my-2 my-sm-0',:name => nil%>  
+     </div>  
+   </div>  
+ <% end %> 
+  
+</nav>
+</div>
+  
+<div class="container">
 <% if @user %>
-<p>Events by user: <span><%= @user.login %></span> (<%= @user.id %>)</p>
- <%= image_tag @user.avatar_url, class: "img-fluid" %>
-  <hr>
+<div class='row'>
+	<div class="col-sm-4">
+		<%= image_tag @user.avatar_url, class: "img-thumbnail img-sm" %></div>
+	<div class="col-sm-4">
+		Events by user: <span><%= @user.login %></span> (<%= @user.id %>)</div>
+	
+</div>
  
 <% for @event in @events %>
-  Actor: <%= @event.actor.login %> -
-  ID:<%= @event.id %> -
-  Type:<%= @event.type %> -
-  Repo:<%= @event.repo %> -
-  Date:<%= @event.created_at %> 
-  <hr>
+<div class='row'>
+	<div class="col-sm-3"><span class='badge badge-light'>Actor: </span><%= @event.actor.login %></div>
+    <!-- <div class="col-sm-2"><span class='badge badge-light'>Event ID: </span><%= @event.id %></div> -->
+    <div class="col-sm-3"><span class='badge badge-light'>Event Type: </span><%= @event.type %></div>
+    <div class="col-sm-3"><span class='badge badge-light'>Repo: </span><%= @event.repo.name %> </div>
+    <div class="col-sm-3"><span class='badge badge-light'>Date: </span><%= @event.created_at %></div>
+</div>
 <% end %>
 
 <% end %>
+</div>

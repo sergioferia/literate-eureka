@@ -1,11 +1,16 @@
-
-  <%= form_tag(search_page_path, :method => "get",   
-      class: 'navbar-form navbar-left') do %>  
-    <div class="input-group">  
-      <%= search_field_tag :uname, params[:uname], placeholder: "username", class: "form-control",required: true %>  
-      <div class="input-group-btn">  
-        <%= button_tag "submit", :class => 'btn btn-info glyphicon glyphicon-search',:name => nil%>  
-      </div>  
-    </div>  
-  <% end %>
-	
+<div class="container sticky-top">
+	<nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+  <a class="navbar-brand">Literate Eureka</a> 
+  
+ <%= form_tag(search_page_path, :method => "get",   
+     class: 'form-inline') do %>  
+   <div class="input-group">  
+     <%= search_field_tag :uname, params[:uname], placeholder: "username", class: "form-control mr-sm-2",required: true %>  
+     <div class="input-group-btn">  
+       <%= button_tag "submit", :class => 'btn btn-outline-success my-2 my-sm-0',:name => nil%>  
+     </div>  
+   </div>  
+ <% end %> 
+  
+</nav>
+</div>
