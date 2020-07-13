@@ -13,3 +13,4 @@ class IndexController < ApplicationController
     end
   end
 end
+s
